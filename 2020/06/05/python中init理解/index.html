@@ -28,7 +28,7 @@
 <meta property="og:description" content="__init__ 由两个下划线开头的函数都应该是私有的，即不能在类的外部被使用或访问,下面看两个例子会理解__init__的作用 123456789101112class Box:    def setDimension(self,width,height,depth):        self.width &#x3D; width        self.height &#x3D; height        se">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-05T18:12:05.000Z">
-<meta property="article:modified_time" content="2020-06-12T23:40:30.616Z">
+<meta property="article:modified_time" content="2020-06-13T01:59:00.790Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -162,7 +162,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-13 00:40:30" itemprop="dateModified" datetime="2020-06-13T00:40:30+01:00">2020-06-13</time>
+                <time title="Modified: 2020-06-13 02:59:00" itemprop="dateModified" datetime="2020-06-13T02:59:00+01:00">2020-06-13</time>
               </span>
 
           
@@ -189,7 +189,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a,b)</span>:</span></span><br><span class="line">        self.a = a </span><br><span class="line">        self.b = b</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPeri</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (self.a+self.b)*<span class="number">2</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.a*self.b</span><br><span class="line"></span><br><span class="line">rect = Rectangle (<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">print(rect.getPeri())</span><br><span class="line">print(rect.getArea())</span><br><span class="line">print(rect.__dict__)</span><br></pre></td></tr></table></figure>
 
 
-<p><strong>总的来说，__init__可以帮助在创建实例的时候，直接把属性，以及传的值给实例绑定上</strong></p>
+<p><strong>总的来说，__init__可以帮助在创建实例的时候，直接把属性，以及传的值给实例绑定上（在实例化的过程中会自动执行__init__方法</strong></p>
 <p>Reference:<br><a href="https://blog.csdn.net/geerniya/article/details/77487941" target="_blank" rel="noopener">https://blog.csdn.net/geerniya/article/details/77487941</a><br><a href="https://blog.csdn.net/luzhan66/article/details/82822896" target="_blank" rel="noopener">https://blog.csdn.net/luzhan66/article/details/82822896</a><br><a href="https://blog.csdn.net/github_40122084/article/details/79375369" target="_blank" rel="noopener">https://blog.csdn.net/github_40122084/article/details/79375369</a></p>
 
     </div>
@@ -283,7 +283,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

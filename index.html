@@ -127,6 +127,71 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/%E6%B5%85%E8%B0%88python%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/13/%E6%B5%85%E8%B0%88python%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8/" class="post-title-link" itemprop="url">浅谈python类和对象的作用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-13 01:46:58 / Modified: 03:03:29" itemprop="dateCreated datePublished" datetime="2020-06-13T01:46:58+01:00">2020-06-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-类和对象"><a href="#1-类和对象" class="headerlink" title="1.类和对象"></a>1.类和对象</h2><p>类是一个抽象概念，方便复写，具体来说<strong>用来描述具有相同的属性和方法的类的集合</strong>，比如人类，具体某个人就是对象，对象又会有属性和方法 下面通过一个简单的类进行介绍</p>
+<ul>
+<li>结论：对象=属性（特征）+方法（行为）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line">    class_name= <span class="string">"人类"</span> <span class="comment">#类变量，它的值将在这个类所有实例之间共享，可以在类内部或者外部用zhangsan.class_name访问</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,birth)</span>:</span><span class="comment">#被称做类的“构造函数”或“初始化方法”，基本就是这个类的基本信息</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.birth = birth</span><br><span class="line">        self.height = <span class="number">170</span></span><br><span class="line">        self.legs = <span class="number">2</span> <span class="comment">#这一部分为类的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self)</span>:</span> <span class="comment">#类的行为（方法）</span></span><br><span class="line">        print(<span class="string">"我的姓名："</span>,self.name)</span><br><span class="line">        print(<span class="string">"我出生于："</span>,self.birth)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">jiafa</span><span class="params">(self,x,y)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x+y</span><br><span class="line">print(Person.class_name)<span class="comment">#查看Person类的名字</span></span><br><span class="line">zhangsan = Person(<span class="string">"张三"</span>，<span class="number">1980</span><span class="number">-01</span><span class="number">-11</span>)<span class="comment">#实例化过程</span></span><br><span class="line">print(zhangsan.class_name)<span class="comment">#现在张三有了class_name属性</span></span><br><span class="line">zhangsan.say()</span><br><span class="line">zhangsan.height = <span class="number">175</span> <span class="comment">#写入新值</span></span><br><span class="line">print(<span class="string">"我的身高："</span>,zhangsan,height)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>人类</span><br><span class="line"><span class="number">2.</span>人类</span><br><span class="line"><span class="number">3.</span>我的姓名：张三</span><br><span class="line">  我出生于：<span class="number">1980</span><span class="number">-01</span><span class="number">-11</span></span><br><span class="line"><span class="number">4.</span>我的身高：<span class="number">175</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-类的作用"><a href="#2-类的作用" class="headerlink" title="2.类的作用"></a>2.类的作用</h2><p>比如</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/05/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,7 +345,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-13 00:40:30" itemprop="dateModified" datetime="2020-06-13T00:40:30+01:00">2020-06-13</time>
+                <time title="Modified: 2020-06-13 02:59:00" itemprop="dateModified" datetime="2020-06-13T02:59:00+01:00">2020-06-13</time>
               </span>
 
           
@@ -307,7 +372,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a,b)</span>:</span></span><br><span class="line">        self.a = a </span><br><span class="line">        self.b = b</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPeri</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (self.a+self.b)*<span class="number">2</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.a*self.b</span><br><span class="line"></span><br><span class="line">rect = Rectangle (<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">print(rect.getPeri())</span><br><span class="line">print(rect.getArea())</span><br><span class="line">print(rect.__dict__)</span><br></pre></td></tr></table></figure>
 
 
-<p><strong>总的来说，__init__可以帮助在创建实例的时候，直接把属性，以及传的值给实例绑定上</strong></p>
+<p><strong>总的来说，__init__可以帮助在创建实例的时候，直接把属性，以及传的值给实例绑定上（在实例化的过程中会自动执行__init__方法</strong></p>
 <p>Reference:<br><a href="https://blog.csdn.net/geerniya/article/details/77487941" target="_blank" rel="noopener">https://blog.csdn.net/geerniya/article/details/77487941</a><br><a href="https://blog.csdn.net/luzhan66/article/details/82822896" target="_blank" rel="noopener">https://blog.csdn.net/luzhan66/article/details/82822896</a><br><a href="https://blog.csdn.net/github_40122084/article/details/79375369" target="_blank" rel="noopener">https://blog.csdn.net/github_40122084/article/details/79375369</a></p>
 
       
@@ -359,7 +424,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-12 20:49:57" itemprop="dateModified" datetime="2020-06-12T20:49:57+01:00">2020-06-12</time>
+                <time title="Modified: 2020-06-13 01:47:11" itemprop="dateModified" datetime="2020-06-13T01:47:11+01:00">2020-06-13</time>
               </span>
 
           
@@ -373,7 +438,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-实例方法（instance-method"><a href="#1-实例方法（instance-method" class="headerlink" title="1.实例方法（instance method)"></a>1.实例方法（instance method)</h1><p>Python 中实例方法是用的最多的，接下来给出例子<br>class Kls(object):</p>
+          <h2 id="1-实例方法（instance-method"><a href="#1-实例方法（instance-method" class="headerlink" title="1.实例方法（instance method)"></a>1.实例方法（instance method)</h2><p>Python 中实例方法是用的最多的，接下来给出例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,data)</span>:</span></span><br><span class="line">        self.data=data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">printed</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.data)</span><br><span class="line"></span><br><span class="line">ik1 = Kls(<span class="string">'leo'</span>)</span><br><span class="line">ik2 = Kls(<span class="string">'lee'</span>)</span><br><span class="line"></span><br><span class="line">ik1.printed()</span><br><span class="line">ik2.printed()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">leo</span><br><span class="line">lee</span><br></pre></td></tr></table></figure>
+<h2 id="2-类方法（class-method"><a href="#2-类方法（class-method" class="headerlink" title="2.类方法（class method)"></a>2.类方法（class method)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kls</span><span class="params">(object)</span>:</span></span><br><span class="line">    num_inst = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        Kls.num_inst = Kls.num_inst+<span class="number">1</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_no_of_instance</span><span class="params">(cls)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls.num_inst</span><br><span class="line"></span><br><span class="line">ik1 = Kls()</span><br><span class="line">ik2 = Kls()</span><br><span class="line"><span class="keyword">print</span> (ik1.get_no_of_instance())</span><br><span class="line"><span class="keyword">print</span> (Kls.get_no_of_instance())</span><br></pre></td></tr></table></figure>
+<p>Reference:<br><a href="https://blog.csdn.net/lihao21/article/details/79762681" target="_blank" rel="noopener">https://blog.csdn.net/lihao21/article/details/79762681</a></p>
 
       
     </div>
@@ -524,7 +594,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
