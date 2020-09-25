@@ -440,94 +440,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/14/%E7%88%AC%E8%99%AB%E7%9B%B8%E5%85%B3%E4%B8%80%E4%BA%9B%E6%9D%82%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/14/%E7%88%AC%E8%99%AB%E7%9B%B8%E5%85%B3%E4%B8%80%E4%BA%9B%E6%9D%82%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">爬虫相关一些杂知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-14 13:25:30" itemprop="dateCreated datePublished" datetime="2020-06-14T13:25:30+08:00">2020-06-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-25 23:55:37" itemprop="dateModified" datetime="2020-09-25T23:55:37+08:00">2020-09-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>##1.了解一些网络的相关知识<br>####1）url<br><a href="http://kaoshi.edu.sina.com.cn/college/scorelist?tab=batch&amp;wl=1&amp;local=2&amp;batch=&amp;syear=2013" target="_blank" rel="noopener">http://kaoshi.edu.sina.com.cn/college/scorelist?tab=batch&amp;wl=1&amp;local=2&amp;batch=&amp;syear=2013</a><br>url：协议（http://) + 域名(kaoshi.edu.sina.com.cn) + 路由(college/scorelist,二级分类) + 参数（？以后为参数）</p>
-<p>一般来说一个URL=协议+域名|IP+端口号+路径+参数+锚点<br>端口号：接在冒号后面，80端口提供http服务，443端口提供https服务，21端口提供FTP服务。<br>&amp;： 表示分号，表示并列关系</p>
-<p>####2）线程，进程，协程，并行，并发<br>进程：<strong>正在运行</strong>的程序，比如你的系统正在运行着微信就是一个进程（一旦你的微信运行起来，系统就会分配内存和资源。</p>
-<p>单进程：电脑只能做一件事，比如：电脑运行了微信以后就不能再打开淘宝。</p>
-<p>多进程：就是可以同时运行多个程序。</p>
-<p>其实一个单核cpu在一个时间点只能运行一个程序，之所以让你感觉你的电脑同时运行了多个程序，CPU在切换着做，并且切换速度之快让你觉着你所开的程序好像是在同时运行。</p>
-<p>线程：在一个进程里可以执行多个任务，在这里的每一个任务就是线程。线程可以说是程序用CPU的一个基本单元，因此一个程序里面只是单一的一个执行路径，那么它就是单线程的，反之多个执行路径，就是多线程。</p>
-<p>并行：一个单核的CPU，它每次只能执行一个进程，但是如果多核的CPU，同时可以执行多个进程，这就是并行。在同一个<font color=red>时间段</font>可以执行多个进程。</p>
-<p>并发：就是在一个<font color=red>时间点</font>同时执行多个进程。例如：在双十一，多个用户同时描述一个商品就叫做并发。</p>
-<p>互斥锁：在系统里面进程和进程之间互相独立的，而进程之间是互相独立的,而一个进程里面有多个线程。这时候线程就要搞事情了，毕竟一块蛋糕被<font color=red>共享</font>了，谁都想多分一点，多抢占些资源，但同时就会导致数据不安全，所以这时候就有了<strong>互斥锁</strong>。</p>
-<p>GIL：是python中控制线程执行权限的，所以当一个线程需要执行的时候，先要获得GIL之后才能执行，这样就不会产生安全问题。<br>在I/O流阻塞的时候，GIL会被释放。</p>
-<p>我们的 Python 程序，如果是要处理多任务，想要充分的去利用我们多核的CPU，就开启多进程（multiprocessing）而对于一些输入输出的多任务，就开启多线程（threading.Thread、multiprocessing.dummy）？？？不太理解</p>
-<p>协程（微线程）：在一个线程里面可以执行多个函数，线程和进程是通过系统调度的，而微线程则不需要可以通过需求自己调度，因为微线程是<font color=red>函数</font>之间的切换，所以开销比较小。</p>
-<p>####3) python 线程池<br>传统多线程方案会使用“即时创建，即时销毁“的策略。尽管与创建进程相比，创建线程已经大大缩短时间，但是如果提交给线程的是执行时间短的任务，而且执行频率高。那么服务器将处于不停的创建线程，销毁线程的状态。</p>
-<p>线程运行可以分为三个部分：1）线程的启动时间 2）线程的运行时间 3）线程的销毁时间<br>在多线程中，如果不能重复使用线程，那么意味着将会每次都要运行这三个步骤。势必会大大降低效率。<br>可以使用 <font color=red>ThreadPoolExecutor/queue </font>来实现线程池.</p>
-<p>##2.Chrome浏览器开发者工具<br>显示网页源代码/检查<br>显示网页源代码：静态源代码<br>检查：经过渲染和加载后显示的</p>
-<p>显示网页源代码，检查<br>1.Elements : 页面渲染之后的结构，任意调整，即时显示；<br>2.console ：打印调试；<br>3.Sources ：使用的文件；<br>4.Network ：全部网络请求；<br>&emsp;XHR （XMLHttpRequest)： 异步请求，就是请求的一些数据,通过Http在浏览器和web服务器之间收发XML或其它数据，好处：可以动态更新网页，无需重新重新从服务器读取整个网页，也不需要额外的安装插件。</p>
-<p>Get: 参数放到URL里的<br>Post：参数放到数据包里的， 一定要提交数据包<br>比如 注册，登录，这时候我们就是做post请求 post 的参数不会直接放到url上，会以form 表单的形式将数据提交给服务器。除XML之外，XMLHttp还能用于获取其它格式的数据，如JSON或者纯文本。</p>
-<p>##3.几个常用的Python爬虫库<br>###1.urllib<br>request: 用来发请求的<br>error: 在用request 模块遇到错了就可以用它来进行异常处理<br>parse: 用来解析URL地址的，比如解析域名地址，URL指定的目录<br>robotparse:这个用的比较少，用来解析网站的robot.txt</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.urlopen(url,data=<span class="literal">None</span>,[timeout,]*)</span><br></pre></td></tr></table></figure>
-<p>urlopen 默认是get请求，当data传递数据时，就为post请求<br>第一个参数url请求的链接<br>第二个参数data 就是专门给我们post请求携带参数的，比如登录时需要用户名和密码<br>第三个参数 timeout 就是设置请求超时时间如果等好久服务器都没有给我们返回数据，放弃请求。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.Request(url, data=<span class="literal">None</span>, headers=&#123;&#125;, method=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p>request可以自定义请求方式（通过method方法)，此方法可以欺骗服务器自己是浏览器或者手机请求</p>
-<p>###2.request<br>Request是在urllib的基础上</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/%E6%B5%85%E8%B0%88python%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BD%9C%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -872,6 +784,85 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/05/python%E4%B8%ADinit%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/05/python%E4%B8%ADinit%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">python 中 __init__的用法和理解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-05 19:12:05" itemprop="dateCreated datePublished" datetime="2020-06-05T19:12:05+08:00">2020-06-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-25 06:25:44" itemprop="dateModified" datetime="2020-06-25T06:25:44+08:00">2020-06-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>__init__ 由两个下划线开头的函数都应该是<strong>私有的</strong>，即不能在类的外部被使用或访问,下面看两个例子会理解__init__的作用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setDimension</span><span class="params">(self,width,height,depth)</span>:</span></span><br><span class="line">        self.width = width</span><br><span class="line">        self.height = height</span><br><span class="line">        self.depth =depth</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getVolume</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.width*self.height*self.depth</span><br><span class="line"></span><br><span class="line">b=Box()</span><br><span class="line">b.setDimension(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line">print(b.getVolume())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span>:</span></span><br><span class="line">    <span class="comment">#Box()/Box(object)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,width,height,depth)</span>:</span></span><br><span class="line">        self.width = width</span><br><span class="line">        self.height = height</span><br><span class="line">        self.depth = depth</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getVolume</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.width*self.height*self.depth</span><br><span class="line"></span><br><span class="line">b=Box(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line">print(b.getVolume())</span><br></pre></td></tr></table></figure>
+<p>通过以上例子，我们可以发现__init__,在创建实例就自动把width,height,depth等属性自动绑上了。如果没有__init__，则需要再用代码调用一遍绑定的方法setDimension.</p>
+<p>__init__方法的第一个参数永远是self,<strong>表示创建实例</strong>本身，在__init__可以把属性绑定到self,因为self指向的就是<strong>创建实例本身</strong>。</p>
+<p>第二个例子更明显</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPeri</span><span class="params">(self,a,b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (a+b)*<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self,a,b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a*b</span><br><span class="line"></span><br><span class="line">rect = Rectangle()</span><br><span class="line">print(rect.getPeri(<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">print(rect.getArea(<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">print(rect.__dict__)</span><br></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>在实例对象化的时候rect = Rectangle()，此时就为空的，没有指定a,b值。并且<strong>在类中每次定义方法的时候都要传参</strong>会显得有些麻烦，而使用__init__，直接给实例绑上属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a,b)</span>:</span></span><br><span class="line">        self.a = a </span><br><span class="line">        self.b = b</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getPeri</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (self.a+self.b)*<span class="number">2</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.a*self.b</span><br><span class="line"></span><br><span class="line">rect = Rectangle (<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">print(rect.getPeri())</span><br><span class="line">print(rect.getArea())</span><br><span class="line">print(rect.__dict__)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>总的来说，__init__可以帮助在创建实例的时候，直接把属性，以及传的值给实例绑定上（在实例化的过程中会自动执行__init__方法</strong></p>
+<p>Reference:<br><a href="https://blog.csdn.net/geerniya/article/details/77487941" target="_blank" rel="noopener">https://blog.csdn.net/geerniya/article/details/77487941</a><br><a href="https://blog.csdn.net/luzhan66/article/details/82822896" target="_blank" rel="noopener">https://blog.csdn.net/luzhan66/article/details/82822896</a><br><a href="https://blog.csdn.net/github_40122084/article/details/79375369" target="_blank" rel="noopener">https://blog.csdn.net/github_40122084/article/details/79375369</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -940,7 +931,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
